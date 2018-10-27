@@ -73,8 +73,8 @@
             </activity>
         </config-file>
 
-        <source-file src="src/android/vksdk_library" target-dir="./" />
-        <source-file src="src/android/com/akveo/cordovavk" target-dir="src/com/akveo/cordovavk" />
+        <framework src="src/android/vksdk_library" custom="true" />
+        <source-file src="src/android/com/akveo/cordovavk/VkSdkPlugin.java" target-dir="src/com/akveo/cordovavk" />
     </platform>
 
 </plugin>
