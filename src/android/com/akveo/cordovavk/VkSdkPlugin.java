@@ -49,7 +49,7 @@ public class VkSdkPlugin extends CordovaPlugin {
     private boolean initSocialVk(String appId, CallbackContext callbackContext) throws JSONException {
         // Initial validation
         if (sdkListener != null) {
-            callbackContext.sendPluginResult(sdk.createErrorResult("initError", "Plugin was already initialized", true));
+            callbackContext.sendPluginResult(SdkUtil.createErrorResult("initError", "Plugin was already initialized", true));
             return false;
         }
 
