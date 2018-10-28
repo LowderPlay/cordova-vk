@@ -28,7 +28,7 @@ public class VkSdkPlugin extends CordovaPlugin {
     public static final String ACTION_USER_GET = "getUser";
 
     private VKSdkListener sdkListener = null;
-
+    SdkUtil sdk = new SdkUtil();
     private Activity getActivity() {
         return (Activity) this.webView.getContext();
     }
@@ -38,7 +38,7 @@ public class VkSdkPlugin extends CordovaPlugin {
         if (ACTION_INIT.equals(action)) {
             return initSocialVk(args.getString(0), callbackContext);
         } else if (ACTION_LOGIN.equals(action)) {
-            return authorizeApplication(SdkUtil.jsonArrayToStringList(args.getJSONArray(0)).toArray(new String[0]));
+            return authorizeApplication(sdk.jsonArrayToStringList(args.getJSONArray(0)).toArray(new String[0]));
         } else if (ACTION_GET_FINGERPRINT.equals(action)) {
             return getFingerprint(callbackContext);
         } else if (ACTION_USER_GET.equals(action)) {
@@ -50,7 +50,7 @@ public class VkSdkPlugin extends CordovaPlugin {
     private boolean initSocialVk(String appId, CallbackContext callbackContext) throws JSONException {
         // Initial validation
         if (sdkListener != null) {
-            callbackContext.sendPluginResult(SdkUtil.createErrorResult("initError", "Plugin was already initialized", true));
+            callbackContext.sendPluginResult(sdk.createErrorResult("initError", "Plugin was already initialized", true));
             return false;
         }
 
@@ -60,7 +60,7 @@ public class VkSdkPlugin extends CordovaPlugin {
 
 
         Log.i(VkSdkConstants.LOG_TAG, "VK initialize");
-        callbackContext.sendPluginResult(SdkUtil.createMessageEventResult("initialized", "success", true));
+        callbackContext.sendPluginResult(sdk.createMessageEventResult("initialized", "success", true));
         return true;
     }
 
@@ -73,7 +73,7 @@ public class VkSdkPlugin extends CordovaPlugin {
     private boolean getFingerprint(final CallbackContext callbackContext) {
         Activity activity = getActivity();
         String[] fingerprints = VKUtil.getCertificateFingerprint(activity, activity.getPackageName());
-        JSONArray resultArray = SdkUtil.stringArrayToJsonArray(fingerprints);
+        JSONArray resultArray = sdk.stringArrayToJsonArray(fingerprints);
         callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, resultArray));
         return true;
     }
