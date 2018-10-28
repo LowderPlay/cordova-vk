@@ -37,7 +37,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     debugCompile project(path: ":CordovaLib", configuration: "debug")
     releaseCompile project(path: ":CordovaLib", configuration: "release")
-    javadocDeps 'com.android.support:support-annotations:25.1.0'
     compile 'com.android.support:support-v4:25.1.0'
 }
 
