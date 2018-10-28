@@ -40,13 +40,6 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion 19
-
-    defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 19
-    }
     publishNonDefault true
 
     compileOptions {
