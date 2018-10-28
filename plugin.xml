@@ -74,7 +74,7 @@
         </config-file>
 
         <framework src="src/android/vksdk_library" custom="true" />
-        <source-file src="src/android/com/akveo/cordovavk/VkSdkPlugin.java" target-dir="src/com/akveo/cordovavk" />
+        <source-file src="src/android/com/akveo/cordovavk/VkSdkPlugin.java" target-dir="src/com" />
     </platform>
 
 </plugin>
