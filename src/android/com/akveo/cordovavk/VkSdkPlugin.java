@@ -20,7 +20,6 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
-import com.akveo.cordovavk.SdkUtil;
 
 public class VkSdkPlugin extends CordovaPlugin {
     public static final String ACTION_INIT = "initVkSdk";
